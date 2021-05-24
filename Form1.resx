@@ -57,4 +57,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Instructions leave spaces bettween feilds and to group feild put an * at the start and end.
+Dont forget to remove the comma at the end.
+For other data type besides varchar you can remove the " " by using alt and highlight.</value>
+  </data>
 </root>
