@@ -39,6 +39,7 @@ namespace SqlGen2
             this.label3 = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.chkOrcale = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // textBox1
@@ -46,16 +47,17 @@ namespace SqlGen2
             this.textBox1.Location = new System.Drawing.Point(12, 157);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(350, 324);
+            this.textBox1.Size = new System.Drawing.Size(537, 505);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(460, 157);
+            this.textBox2.Location = new System.Drawing.Point(581, 157);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(350, 324);
+            this.textBox2.Size = new System.Drawing.Size(555, 505);
             this.textBox2.TabIndex = 1;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // button1
             // 
@@ -95,7 +97,7 @@ namespace SqlGen2
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(471, 130);
+            this.label3.Location = new System.Drawing.Point(581, 130);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 15);
             this.label3.TabIndex = 6;
@@ -105,7 +107,7 @@ namespace SqlGen2
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 587);
+            this.splitter1.Size = new System.Drawing.Size(3, 700);
             this.splitter1.TabIndex = 7;
             this.splitter1.TabStop = false;
             // 
@@ -117,11 +119,22 @@ namespace SqlGen2
             this.richTextBox1.TabIndex = 8;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
+            // chkOrcale
+            // 
+            this.chkOrcale.AutoSize = true;
+            this.chkOrcale.Location = new System.Drawing.Point(184, 69);
+            this.chkOrcale.Name = "chkOrcale";
+            this.chkOrcale.Size = new System.Drawing.Size(60, 19);
+            this.chkOrcale.TabIndex = 9;
+            this.chkOrcale.Text = "Oracle";
+            this.chkOrcale.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 587);
+            this.ClientSize = new System.Drawing.Size(1143, 700);
+            this.Controls.Add(this.chkOrcale);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.label3);
@@ -149,6 +162,7 @@ namespace SqlGen2
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.CheckBox chkOrcale;
     }
 }
 

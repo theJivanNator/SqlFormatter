@@ -25,11 +25,17 @@ namespace SqlGen2
             {
                 File.Delete("Input.txt");
             }
+            string symbol = "";
+            if (chkOrcale.Checked)
+            {
+                symbol = "\'";
 
-            /*
-             
-             DATA6212","Database),SQAT6312","Software),CNOS5112","Client),WEDE6011","Web),ISEC6311","Information),
-             */
+            }
+            else
+            {
+                symbol = "\"";
+            }
+
 
             using (StreamWriter writer = new StreamWriter("Input.txt", false))
             {
@@ -37,21 +43,22 @@ namespace SqlGen2
             }
             string line;
             int countS = 0;
-
+            
             string display = "INSERT INTO " + textBox3.Text + " VALUES\n";
+            string tbl = display;
             StreamReader file =
     new System.IO.StreamReader("Input.txt");
             while ((line = file.ReadLine()) != null)
             {
                 bool skip = false;
-                display += "(\"";
+                display += "(" + symbol;
                 for (int i = 0; i < line.Length; i++)
                 {
                     if (line[i] == '*')
                     {
                         if (countS >= 1)
                         {
-                        //    display += "\"";
+                            //    display += "\"";
                             skip = true;
                             countS = 0;
                         }
@@ -74,7 +81,7 @@ namespace SqlGen2
                             else
                             {
 
-                                display += "\",\"";
+                                display += symbol + "," + symbol;
                             }
 
 
@@ -88,17 +95,41 @@ namespace SqlGen2
                         }
                     }
                 }
-                if (countS > 0) { display += "\"),\n"; }
+                if (symbol.Equals("\'"))
+                {
+                    if (countS > 0) { display += symbol + ");\n"+tbl; }
+                    else
+                    {
+                        display += symbol + ");\n"+tbl;
+                    }
+                }
                 else
                 {
-                    display += "\"),\n";
+                    if (countS > 0) { display += symbol + "),\n"; }
+                    else
+                    {
+                        display += symbol + "),\n";
+                    }
                 }
 
             }
-            display = display.Remove(display.Length - 1);
+          
+            if (!chkOrcale.Checked)
+            {
+                display = display.Replace(display.ElementAt(display.Length - 2),' ');
+            }
+            else
+            {
+                display = display.Substring(0, display.Length - (tbl.Length + 2));
+            }
             display = display.Replace("*", "");
-            textBox2.Text = display+";";
+            textBox2.Text = display + ";";
             file.Close();
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
